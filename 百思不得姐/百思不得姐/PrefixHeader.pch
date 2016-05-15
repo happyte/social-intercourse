@@ -1,0 +1,15 @@
+//
+//  PrefixHeader.pch
+//  百思不得姐
+//
+//  Created by 张树 on 16/5/13.
+//  Copyright © 2016年 com.zs. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "UIView+BSView.h"
+#import "UIBarButtonItem+BSBarButtonItem.h"
+
+#endif /* PrefixHeader_pch */

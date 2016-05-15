@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  BSEssenceViewController.h
 //  百思不得姐
 //
 //  Created by 张树 on 16/5/12.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface BSEssenceViewController : UIViewController
 
 @end
-

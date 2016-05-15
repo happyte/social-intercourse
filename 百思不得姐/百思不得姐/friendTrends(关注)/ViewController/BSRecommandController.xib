@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BSRecommandController">
+            <connections>
+                <outlet property="recommendCategoryTableView" destination="9lq-KM-TPb" id="JaU-nn-O6s"/>
+                <outlet property="recommendUserTableView" destination="h6S-BM-M4V" id="w7F-pk-ASz"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9lq-KM-TPb" userLabel="左侧">
+                    <rect key="frame" x="0.0" y="0.0" width="70" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="zwj-13-YXj"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="yKK-uh-e5k"/>
+                        <outlet property="delegate" destination="-1" id="OiQ-lm-Ohw"/>
+                    </connections>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h6S-BM-M4V" userLabel="右侧">
+                    <rect key="frame" x="70" y="0.0" width="305" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="m5g-Bm-KSF"/>
+                        <outlet property="delegate" destination="-1" id="oFA-sP-KeL"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="9lq-KM-TPb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3np-kv-CF4"/>
+                <constraint firstAttribute="bottom" secondItem="9lq-KM-TPb" secondAttribute="bottom" id="KJG-IG-5I9"/>
+                <constraint firstItem="h6S-BM-M4V" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NfG-Ai-4Sa"/>
+                <constraint firstAttribute="trailing" secondItem="h6S-BM-M4V" secondAttribute="trailing" id="ThN-LI-bLU"/>
+                <constraint firstItem="h6S-BM-M4V" firstAttribute="leading" secondItem="9lq-KM-TPb" secondAttribute="trailing" id="Xoo-DD-jhV"/>
+                <constraint firstItem="9lq-KM-TPb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gPW-G6-ox0"/>
+                <constraint firstAttribute="bottom" secondItem="h6S-BM-M4V" secondAttribute="bottom" id="pJH-Ky-ynd"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+</document>

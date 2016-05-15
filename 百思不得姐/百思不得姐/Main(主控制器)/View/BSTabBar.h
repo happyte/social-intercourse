@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  BSTabBar.h
 //  百思不得姐
 //
 //  Created by 张树 on 16/5/12.
@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface BSTabBar : UITabBar
 
 @end
-
