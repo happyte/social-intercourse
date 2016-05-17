@@ -34,10 +34,17 @@ static NSString *UserID = @"user";
 
 - (void)viewDidLoad {
 
-   [super viewDidLoad];
+    [super viewDidLoad];
+    //tableview初始化
     [self setUpTableView];
+    //刷新初始化
     [self setUpRefresh];
+    //加载recommendCategoryTableView数据
+    [self setUpCategoryTableView];
+}
 
+#pragma mark - <初始化类别tableview>
+- (void)setUpCategoryTableView {
     //向服务器请求数据
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"category";
@@ -52,12 +59,13 @@ static NSString *UserID = @"user";
         [self.recommendCategoryTableView reloadData];
         //默认选中首行
         [self.recommendCategoryTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+        // 加载默认首行数据
+        [self.recommendUserTableView.header beginRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [SVProgressHUD dismiss];
-        NSLog(@"请求失败");
+        [SVProgressHUD showErrorWithStatus:@"加载数据失败"];
     }];
-}
 
+}
 //初始化设置
 - (void)setUpTableView {
     self.view.backgroundColor = [UIColor colorWithRed:223/255.0 green:223/255.0 blue:223/255.0 alpha:1.0];
@@ -71,16 +79,54 @@ static NSString *UserID = @"user";
     //控制器的xib是init自动加载的，cell的xib自己手动加载
     [self.recommendCategoryTableView registerNib:[UINib nibWithNibName:NSStringFromClass([BSRecommendCategotyTableViewCell class]) bundle:nil] forCellReuseIdentifier:CategoryID];
     [self.recommendUserTableView registerNib:[UINib nibWithNibName:NSStringFromClass([BSRecommendUserTableViewCell class]) bundle:nil] forCellReuseIdentifier:UserID];
-    
+
 }
 
 //初始化上拉下拉
 - (void)setUpRefresh {
-    self.recommendUserTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(downSlide)];
+    self.recommendUserTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
+    self.recommendUserTableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewUsers)];
     self.recommendUserTableView.footer.hidden = YES;
 }
+#pragma mark - <加载新用户，下拉>
+- (void)loadNewUsers {
+    //无论何时下拉，所有数据都需要重新加载，从第一页开始加载
+    BSRecommendCategory *model = self.categories[self.recommendCategoryTableView.indexPathForSelectedRow.row];
+    //向服务器请求数据
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+    params[@"category_id"] = model.id;
+    
+    [[AFHTTPSessionManager manager]GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //第一次进来下载页面为1
+        model.currentPage = 1;
+        //获得用户组总页数
+        model.total = [responseObject[@"total"] integerValue];
+        //下载成功后要把数据存起来，否则下次进来又重新下载了
+        NSMutableArray *users = [BSRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        //删除原有数据
+        [model.usersArray removeAllObjects];
+        //添加新数据
+        [model.usersArray addObjectsFromArray:users];
+        //加载cell
+        [self.recommendUserTableView reloadData];
+        //关闭下拉刷新
+        [self.recommendUserTableView.header endRefreshing];
+        //检查footer状态
+        [self checkFooterState];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //结束刷新
+        [self.recommendUserTableView.header endRefreshing];
+        [SVProgressHUD showErrorWithStatus:@"加载数据失败"];
+    }];
 
-- (void)downSlide {
+}
+#pragma mark - <加载更多用户，上拉>
+- (void)loadMoreUsers {
+
     //取出选中类型的模型
     BSRecommendCategory *model = self.categories[self.recommendCategoryTableView.indexPathForSelectedRow.row];
     //向服务器请求数据
@@ -100,17 +146,28 @@ static NSString *UserID = @"user";
         [self.recommendUserTableView reloadData];
         //停止刷新
         [self.recommendUserTableView.footer endRefreshing];
-        //最终加载完成，模型总数等于json返回的总数
-        if (model.usersArray.count == model.total) {
-            [self.recommendUserTableView.footer noticeNoMoreData];
-        }
+        //检查footer状态
+        [self checkFooterState];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"请求失败");
+        //结束刷新
+        [self.recommendUserTableView.footer endRefreshing];
+        [SVProgressHUD showErrorWithStatus:@"加载数据失败"];
     }];
-
 }
-#pragma mark - <UITableViewDataSource>
 
+#pragma mark - <检查footer状态>
+- (void)checkFooterState {
+     BSRecommendCategory *model = self.categories[self.recommendCategoryTableView.indexPathForSelectedRow.row];
+    //最终加载完成，模型总数等于json返回的总数
+    if (model.usersArray.count == model.total) {
+        [self.recommendUserTableView.footer noticeNoMoreData];
+    }
+    else {
+        [self.recommendUserTableView.footer endRefreshing];
+    }
+}
+
+#pragma mark - <UITableViewDataSource>
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     if (tableView == self.recommendCategoryTableView) {
@@ -153,30 +210,8 @@ static NSString *UserID = @"user";
     else {
         //为了防止网络加载缓慢停留在上一个界面
         [self.recommendUserTableView reloadData];
-        //向服务器请求数据
-        NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        params[@"a"] = @"list";
-        params[@"c"] = @"subscribe";
-        params[@"category_id"] = model.id;
-        
-        [[AFHTTPSessionManager manager]GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
-            
-        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            //第一次进来下载页面为1
-            model.currentPage = 1;
-            //获得用户组总页数
-            model.total = [responseObject[@"total"] integerValue];
-            //下载成功后要把数据存起来，否则下次进来又重新下载了
-            NSMutableArray *users = [BSRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
-            //model.usersArray实际还是个模型数组
-            [model.usersArray addObjectsFromArray:users];
-            [self.recommendUserTableView reloadData];
-            if (model.usersArray.count == model.total) {
-                [self.recommendUserTableView.footer noticeNoMoreData];
-            }
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"请求失败");
-        }];
+        //开始下拉刷新,进入loadNewUsers函数中
+        [self.recommendUserTableView.header beginRefreshing];
     }
 
 }

@@ -11,5 +11,6 @@
 
 #import "UIView+BSView.h"
 #import "UIBarButtonItem+BSBarButtonItem.h"
+#import "UIImage+BSImage.h"
 
 #endif /* PrefixHeader_pch */

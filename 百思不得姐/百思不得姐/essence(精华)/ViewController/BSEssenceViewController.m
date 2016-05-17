@@ -7,6 +7,7 @@
 //
 
 #import "BSEssenceViewController.h"
+#import "BSTagSettingViewController.h"
 
 @interface BSEssenceViewController ()
 
@@ -21,7 +22,13 @@
     //设置导航条的内容
     UIImageView *MainVc = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"MainTitle"]];;
     self.navigationItem.titleView = MainVc;
+    //设置导航条左部
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"MainTagSubIcon"] WithHighlighted:[UIImage imageNamed:@"MainTagSubIconClick"] WithController:self WithTarget:@selector(tagClick)];
 }
 
+- (void)tagClick {
+    BSTagSettingViewController *tagVc = [[BSTagSettingViewController alloc]init];
+    [self.navigationController pushViewController:tagVc animated:YES];
+}
 
 @end
