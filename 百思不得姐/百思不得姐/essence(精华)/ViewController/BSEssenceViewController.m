@@ -47,7 +47,7 @@
 
     UIView *titleView = [[UIView alloc]init];
     titleView.frame = CGRectMake(0, 64, self.view.width, 35);
-    titleView.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.6];
+    titleView.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.8];
     self.titleView = titleView;
     [self.view addSubview:titleView];
     
@@ -157,11 +157,11 @@
     //进行frame设置
     vc.view.frame = CGRectMake(self.scrollView.contentOffset.x, 0, self.scrollView.width, self.scrollView.height);
 
-    CGFloat top = CGRectGetMaxY(self.titleView.frame);
-    CGFloat bottom = self.tabBarController.tabBar.height;
-    //tableview占据的frame是整个屏幕，但是能显示的是下面一句话设置的
-    vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
-    vc.tableView.scrollIndicatorInsets = vc.tableView.contentInset;
+//    CGFloat top = CGRectGetMaxY(self.titleView.frame);
+//    CGFloat bottom = self.tabBarController.tabBar.height;
+//    //tableview占据的frame是整个屏幕，但是能显示的是下面一句话设置的
+//    vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+//    vc.tableView.scrollIndicatorInsets = vc.tableView.contentInset;
     [scrollView addSubview:vc.view];
 }
 

@@ -18,6 +18,10 @@
 		5A7BA5611CE469ED004AD4CA /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7BA5601CE469ED004AD4CA /* _____Tests.m */; };
 		5A7BA56C1CE469ED004AD4CA /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7BA56B1CE469ED004AD4CA /* _____UITests.m */; };
 		5AA668421CE5626C008EB020 /* UIView+BSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA668411CE5626C008EB020 /* UIView+BSView.m */; };
+		5AA75A231CED818600ECCB73 /* BSTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA75A221CED818600ECCB73 /* BSTopics.m */; };
+		5AA75A281CED869E00ECCB73 /* BSTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA75A261CED869E00ECCB73 /* BSTopicCell.m */; };
+		5AA75A291CED869E00ECCB73 /* BSTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AA75A271CED869E00ECCB73 /* BSTopicCell.xib */; };
+		5AA75A2F1CEDB7CA00ECCB73 /* NSObject+BSConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA75A2E1CEDB7CA00ECCB73 /* NSObject+BSConst.m */; };
 		5AAB911B1CE9CAFA0096945E /* BSTagSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAB91191CE9CAFA0096945E /* BSTagSettingViewController.m */; };
 		5AAB91201CE9CDF10096945E /* BSTagSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAB911E1CE9CDF10096945E /* BSTagSettingTableViewCell.m */; };
 		5AAB91211CE9CDF10096945E /* BSTagSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AAB911F1CE9CDF10096945E /* BSTagSettingTableViewCell.xib */; };
@@ -92,6 +96,13 @@
 		5AA668401CE5626C008EB020 /* UIView+BSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BSView.h"; path = "../UIView+BSView.h"; sourceTree = "<group>"; };
 		5AA668411CE5626C008EB020 /* UIView+BSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BSView.m"; path = "../UIView+BSView.m"; sourceTree = "<group>"; };
 		5AA668441CE56445008EB020 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		5AA75A211CED818600ECCB73 /* BSTopics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTopics.h; sourceTree = "<group>"; };
+		5AA75A221CED818600ECCB73 /* BSTopics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSTopics.m; sourceTree = "<group>"; };
+		5AA75A251CED869E00ECCB73 /* BSTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTopicCell.h; sourceTree = "<group>"; };
+		5AA75A261CED869E00ECCB73 /* BSTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSTopicCell.m; sourceTree = "<group>"; };
+		5AA75A271CED869E00ECCB73 /* BSTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BSTopicCell.xib; sourceTree = "<group>"; };
+		5AA75A2D1CEDB7CA00ECCB73 /* NSObject+BSConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BSConst.h"; sourceTree = "<group>"; };
+		5AA75A2E1CEDB7CA00ECCB73 /* NSObject+BSConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BSConst.m"; sourceTree = "<group>"; };
 		5AAB91181CE9CAFA0096945E /* BSTagSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTagSettingViewController.h; sourceTree = "<group>"; };
 		5AAB91191CE9CAFA0096945E /* BSTagSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSTagSettingViewController.m; sourceTree = "<group>"; };
 		5AAB911D1CE9CDF10096945E /* BSTagSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTagSettingTableViewCell.h; sourceTree = "<group>"; };
@@ -191,6 +202,8 @@
 				5AA668411CE5626C008EB020 /* UIView+BSView.m */,
 				5AF5BEDD1CEA0C780037589A /* UIImage+BSImage.h */,
 				5AF5BEDE1CEA0C780037589A /* UIImage+BSImage.m */,
+				5AA75A2D1CEDB7CA00ECCB73 /* NSObject+BSConst.h */,
+				5AA75A2E1CEDB7CA00ECCB73 /* NSObject+BSConst.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -282,9 +295,30 @@
 			path = "百思不得姐UITests";
 			sourceTree = "<group>";
 		};
+		5AA75A201CED814800ECCB73 /* ChildModel */ = {
+			isa = PBXGroup;
+			children = (
+				5AA75A211CED818600ECCB73 /* BSTopics.h */,
+				5AA75A221CED818600ECCB73 /* BSTopics.m */,
+			);
+			name = ChildModel;
+			sourceTree = "<group>";
+		};
+		5AA75A241CED818C00ECCB73 /* ChildView */ = {
+			isa = PBXGroup;
+			children = (
+				5AA75A251CED869E00ECCB73 /* BSTopicCell.h */,
+				5AA75A261CED869E00ECCB73 /* BSTopicCell.m */,
+				5AA75A271CED869E00ECCB73 /* BSTopicCell.xib */,
+			);
+			name = ChildView;
+			sourceTree = "<group>";
+		};
 		5AC418E21CE49CA300BC42FA /* essence(精华) */ = {
 			isa = PBXGroup;
 			children = (
+				5AA75A241CED818C00ECCB73 /* ChildView */,
+				5AA75A201CED814800ECCB73 /* ChildModel */,
 				5ACEF8A81CEC75E600F87F5D /* ChildViewController */,
 				5AC418E31CE49CA300BC42FA /* Model */,
 				5AC418E41CE49CA300BC42FA /* View */,
@@ -613,6 +647,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AA75A291CED869E00ECCB73 /* BSTopicCell.xib in Resources */,
 				5AF5BEE41CEA11360037589A /* BSAutoLoginController.xib in Resources */,
 				5AAB91211CE9CDF10096945E /* BSTagSettingTableViewCell.xib in Resources */,
 				5AED8DF61CE74B4200F06CC6 /* BSRecommandController.xib in Resources */,
@@ -706,6 +741,7 @@
 				5AA668421CE5626C008EB020 /* UIView+BSView.m in Sources */,
 				5AAB91241CE9D0220096945E /* BSTag.m in Sources */,
 				5ACBD1EB1CE6E31200B0AF24 /* BSNavigationController.m in Sources */,
+				5AA75A231CED818600ECCB73 /* BSTopics.m in Sources */,
 				5AED8DFB1CE756CA00F06CC6 /* BSRecommendCategory.m in Sources */,
 				5ACEF8A71CEC75D400F87F5D /* BSWordTableViewController.m in Sources */,
 				5AC419181CE49F4300BC42FA /* BSNewClickViewController.m in Sources */,
@@ -713,6 +749,7 @@
 				5AF5BEE71CEA255B0037589A /* BSVerticalButton.m in Sources */,
 				5AC4190F1CE49EFA00BC42FA /* BSEssenceViewController.m in Sources */,
 				5AF5BEE21CEA10810037589A /* BSAutoLoginController.m in Sources */,
+				5AA75A2F1CEDB7CA00ECCB73 /* NSObject+BSConst.m in Sources */,
 				5ACAB8FF1CE84E0500695257 /* BSRecommendUser.m in Sources */,
 				5AC419121CE49F0F00BC42FA /* BSMeViewController.m in Sources */,
 				5AED8E021CE7595100F06CC6 /* BSRecommendCategotyTableViewCell.m in Sources */,
@@ -720,6 +757,7 @@
 				5A25BB541CEAF81D00C217EB /* BSTextField.m in Sources */,
 				5ACAB9031CE8504200695257 /* BSRecommendUserTableViewCell.m in Sources */,
 				5AC4191B1CE4B0B000BC42FA /* BSTabBar.m in Sources */,
+				5AA75A281CED869E00ECCB73 /* BSTopicCell.m in Sources */,
 				5AF5BEDF1CEA0C780037589A /* UIImage+BSImage.m in Sources */,
 				5A25BB4B1CEAD96100C217EB /* Foundation+Log.m in Sources */,
 				5A7BA5481CE469ED004AD4CA /* main.m in Sources */,
