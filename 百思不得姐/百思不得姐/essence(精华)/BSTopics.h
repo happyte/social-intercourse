@@ -23,5 +23,7 @@
 @property(nonatomic,strong)NSString *repost;
 //评论
 @property(nonatomic,strong)NSString *comment;
+//Vip标志
+@property(nonatomic,assign,getter=issina_v)BOOL sina_v;
 
 @end

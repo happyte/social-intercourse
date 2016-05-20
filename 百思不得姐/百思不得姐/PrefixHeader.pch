@@ -13,5 +13,6 @@
 #import "UIBarButtonItem+BSBarButtonItem.h"
 #import "UIImage+BSImage.h"
 #import "NSObject+BSConst.h"
+#import "NSDate+BSDateExtension.h"
 
 #endif /* PrefixHeader_pch */

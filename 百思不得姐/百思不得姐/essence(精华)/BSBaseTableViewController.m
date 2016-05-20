@@ -6,7 +6,7 @@
 //  Copyright © 2016年 com.zs. All rights reserved.
 //
 
-#import "BSWordTableViewController.h"
+#import "BSBaseTableViewController.h"
 #import <AFNetworking.h>
 #import <SVProgressHUD.h>
 #import <MJExtension.h>
@@ -15,7 +15,7 @@
 #import "BSTopics.h"
 #import "BSTopicCell.h"
 
-@interface BSWordTableViewController ()
+@interface BSBaseTableViewController ()
 
 @property(nonatomic,strong)NSMutableArray *topics;
 @property(nonatomic,strong)NSString *maxtime;
@@ -24,7 +24,7 @@
 @property (nonatomic, strong) NSDictionary *params;
 @end
 
-@implementation BSWordTableViewController
+@implementation BSBaseTableViewController
 
 static NSString *topicID = @"topic";
 
@@ -62,11 +62,11 @@ static NSString *topicID = @"topic";
 
 //加载新用户
 - (void)loadNewUsers {
-   
+    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @"29";
+    params[@"type"] =  @(self.type);
     self.params = params;
     [[AFHTTPSessionManager manager]GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
         [SVProgressHUD show];
@@ -97,7 +97,7 @@ static NSString *topicID = @"topic";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @"29";
+    params[@"type"] = @(self.type);
     params[@"maxtime"] = self.maxtime;
     self.params = params;
     [[AFHTTPSessionManager manager]GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -122,7 +122,7 @@ static NSString *topicID = @"topic";
         [self.tableView.footer endRefreshing];
         [SVProgressHUD showErrorWithStatus:@"加载数据失败"];
     }];
-
+    
 }
 
 #pragma mark - Table view data source
@@ -133,7 +133,7 @@ static NSString *topicID = @"topic";
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     BSTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:topicID];
     self.tableView.footer.hidden = (self.topics.count == 0);
     BSTopics *topic = self.topics[indexPath.row];

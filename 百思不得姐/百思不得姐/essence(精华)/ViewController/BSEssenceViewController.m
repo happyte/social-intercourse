@@ -8,11 +8,7 @@
 
 #import "BSEssenceViewController.h"
 #import "BSTagSettingViewController.h"
-#import "BSAllTableViewController.h"
-#import "BSVideoTableViewController.h"
-#import "BSPictureTableViewController.h"
-#import "BSWordTableViewController.h"
-#import "BSVoiceTableViewController.h"
+#import "BSBaseTableViewController.h"
 
 @interface BSEssenceViewController ()<UIScrollViewDelegate>
 
@@ -92,15 +88,20 @@
  *初始化子控制器
  */
 - (void)setUpAllChildControllers {
-    BSAllTableViewController *allVc = [[BSAllTableViewController alloc]init];
+    BSBaseTableViewController *allVc = [[BSBaseTableViewController alloc]init];
+    allVc.type = AllType;
     [self addChildViewController:allVc];
-    BSVideoTableViewController *videoVc = [[BSVideoTableViewController alloc]init];
+    BSBaseTableViewController *videoVc = [[BSBaseTableViewController alloc]init];
+    videoVc.type = VideoType;
     [self addChildViewController:videoVc];
-    BSPictureTableViewController *picVc = [[BSPictureTableViewController alloc]init];
+    BSBaseTableViewController *picVc = [[BSBaseTableViewController alloc]init];
+    picVc.type = PicType;
     [self addChildViewController:picVc];
-    BSVoiceTableViewController *voiceVc = [[BSVoiceTableViewController alloc]init];
+    BSBaseTableViewController *voiceVc = [[BSBaseTableViewController alloc]init];
+    voiceVc.type = VoiceType;
     [self addChildViewController:voiceVc];
-    BSWordTableViewController *wordVc = [[BSWordTableViewController alloc]init];
+    BSBaseTableViewController *wordVc = [[BSBaseTableViewController alloc]init];
+    wordVc.type = WordType;
     [self addChildViewController:wordVc];
 }
 
@@ -157,11 +158,6 @@
     //进行frame设置
     vc.view.frame = CGRectMake(self.scrollView.contentOffset.x, 0, self.scrollView.width, self.scrollView.height);
 
-//    CGFloat top = CGRectGetMaxY(self.titleView.frame);
-//    CGFloat bottom = self.tabBarController.tabBar.height;
-//    //tableview占据的frame是整个屏幕，但是能显示的是下面一句话设置的
-//    vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
-//    vc.tableView.scrollIndicatorInsets = vc.tableView.contentInset;
     [scrollView addSubview:vc.view];
 }
 

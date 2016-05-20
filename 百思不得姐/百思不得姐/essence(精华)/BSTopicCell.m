@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *caiBtn;
 @property (weak, nonatomic) IBOutlet UIButton *repostBtn;
 @property (weak, nonatomic) IBOutlet UIButton *commentBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *Vip;
 
 @end
 
@@ -38,6 +39,7 @@
    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     self.nameLabel.text = topic.name;
     self.createLabel.text = topic.created_at;
+    self.Vip.hidden = !topic.issina_v;
     [self setupButtonTitle:self.dingBtn withPlaceholder:topic.ding];
     [self setupButtonTitle:self.caiBtn withPlaceholder:topic.cai];
     [self setupButtonTitle:self.repostBtn withPlaceholder:topic.repost];
