@@ -7,6 +7,7 @@
 //
 
 #import "BSTopics.h"
+#import <MJExtension.h>
 
 @implementation BSTopics
 
@@ -27,6 +28,16 @@
  非今年
  2014-05-08 18:45:30
  */
+
+//只需要在模型内加这一段代码，就可以替换属性
++ (NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{
+             @"small_image" : @"image0",
+             @"large_image" : @"image1",
+             @"middle_image" : @"image2"
+             };
+}
 
 //重写create_at的get方法
 - (NSString *)created_at {
@@ -63,6 +74,34 @@
     else { //非今年
         return _created_at;
     }
+}
+
+- (CGFloat)cellHeight {
+    
+    //只计算一次cell高度
+    if (_cellHeight == 0) {
+        CGSize constraint = CGSizeMake([UIScreen mainScreen].bounds.size.width - 4*cellMargin, MAXFLOAT);
+        CGFloat textH = [self.text boundingRectWithSize:constraint options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.height;
+        _cellHeight = titleImageY + textH + cellMargin + bottomH;
+        //判断控制器类型，根据类型计算cell的高度,type是服务器返回的数据
+  
+            //获得模型中pictureFrame的值
+            CGFloat imageW = pictureViewWidth;
+            CGFloat imageH = imageW*self.height/self.width;
+            if (self.type == PicType) {
+                if (imageH > pictureViewMaxHeight) {   //超出最大高度使用设置的最大高度,拿真正需要显示的高度比较
+                    imageH = pictureViewBreakHeight;
+                    self.bigImage = YES;
+                }
+            CGFloat pictureX = cellMargin;
+            CGFloat pictureY = titleImageY + textH + cellMargin;
+            //重新计算cell的高度
+            self.pictureFrame = CGRectMake(pictureX, pictureY, imageW, imageH);
+            _cellHeight += imageH + cellMargin;
+        }
+        _cellHeight += cellMargin;
+    }
+    return _cellHeight;
 }
 
 @end

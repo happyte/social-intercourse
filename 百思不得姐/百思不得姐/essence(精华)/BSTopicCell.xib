@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -206,6 +207,12 @@
                             <constraint firstAttribute="height" constant="14" id="qLJ-hq-ve8"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXJ-PJ-eh0">
+                        <rect key="frame" x="10" y="60" width="295" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="s2n-NS-C3W" firstAttribute="leading" secondItem="xTq-0F-Us2" secondAttribute="trailing" constant="10" id="A22-yC-eMf"/>
@@ -215,18 +222,30 @@
                     <constraint firstItem="xTq-0F-Us2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="RXW-2Z-T3O"/>
                     <constraint firstAttribute="bottom" secondItem="uIg-gU-9Md" secondAttribute="bottom" id="Srh-1W-BNo"/>
                     <constraint firstAttribute="trailing" secondItem="uIg-gU-9Md" secondAttribute="trailing" id="W5m-xw-Ydx"/>
+                    <constraint firstItem="SXJ-PJ-eh0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="XK4-LN-MfD"/>
                     <constraint firstAttribute="trailing" secondItem="wVw-2v-4Ww" secondAttribute="trailing" constant="15" id="YhX-o6-7KF"/>
+                    <constraint firstItem="SXJ-PJ-eh0" firstAttribute="top" secondItem="xTq-0F-Us2" secondAttribute="bottom" constant="10" id="a8W-Id-bFf"/>
                     <constraint firstItem="uIg-gU-9Md" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="aGU-ak-z61"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="SXJ-PJ-eh0" secondAttribute="trailing" constant="10" id="hNm-3W-On6"/>
                     <constraint firstItem="hPJ-78-aW0" firstAttribute="trailing" secondItem="xTq-0F-Us2" secondAttribute="trailing" constant="5" id="o66-U7-pcU"/>
+                    <constraint firstItem="SXJ-PJ-eh0" firstAttribute="leading" secondItem="xTq-0F-Us2" secondAttribute="leading" id="qnF-ib-zIV"/>
                     <constraint firstItem="JCv-PX-KyU" firstAttribute="bottom" secondItem="xTq-0F-Us2" secondAttribute="bottom" id="qwq-a7-YUy"/>
+                    <constraint firstItem="SXJ-PJ-eh0" firstAttribute="trailing" secondItem="wVw-2v-4Ww" secondAttribute="trailing" id="sKU-t9-Y1u"/>
                     <constraint firstItem="hPJ-78-aW0" firstAttribute="bottom" secondItem="xTq-0F-Us2" secondAttribute="bottom" constant="5" id="zNB-zC-64b"/>
                     <constraint firstItem="s2n-NS-C3W" firstAttribute="top" secondItem="xTq-0F-Us2" secondAttribute="top" id="zu0-Yc-8Gx"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="XK4-LN-MfD"/>
+                        <exclude reference="hNm-3W-On6"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="Vip" destination="hPJ-78-aW0" id="QF8-1e-R2G"/>
                 <outlet property="caiBtn" destination="v1x-uS-Riv" id="gjb-Sz-fJK"/>
                 <outlet property="commentBtn" destination="KDv-Yx-JK2" id="QT3-Up-g84"/>
+                <outlet property="content_text" destination="SXJ-PJ-eh0" id="pLF-3Y-Hmg"/>
                 <outlet property="createLabel" destination="JCv-PX-KyU" id="UBT-LT-YTz"/>
                 <outlet property="dingBtn" destination="GCn-9H-2nn" id="DNK-Qz-OiJ"/>
                 <outlet property="nameLabel" destination="s2n-NS-C3W" id="0yS-26-DrQ"/>

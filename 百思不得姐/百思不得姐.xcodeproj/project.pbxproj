@@ -45,6 +45,9 @@
 		5AED8DFB1CE756CA00F06CC6 /* BSRecommendCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AED8DFA1CE756CA00F06CC6 /* BSRecommendCategory.m */; };
 		5AED8E021CE7595100F06CC6 /* BSRecommendCategotyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AED8E001CE7595100F06CC6 /* BSRecommendCategotyTableViewCell.m */; };
 		5AED8E031CE7595100F06CC6 /* BSRecommendCategotyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AED8E011CE7595100F06CC6 /* BSRecommendCategotyTableViewCell.xib */; };
+		5AEFB81D1CF05272000AAA78 /* BSPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEFB81C1CF05272000AAA78 /* BSPictureView.m */; };
+		5AEFB81F1CF05288000AAA78 /* BSPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AEFB81E1CF05288000AAA78 /* BSPictureView.xib */; };
+		5AEFB8281CF085BA000AAA78 /* BSProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEFB8271CF085BA000AAA78 /* BSProgressView.m */; };
 		5AF5BEDF1CEA0C780037589A /* UIImage+BSImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5BEDE1CEA0C780037589A /* UIImage+BSImage.m */; };
 		5AF5BEE21CEA10810037589A /* BSAutoLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5BEE11CEA10810037589A /* BSAutoLoginController.m */; };
 		5AF5BEE41CEA11360037589A /* BSAutoLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AF5BEE31CEA11360037589A /* BSAutoLoginController.xib */; };
@@ -141,6 +144,11 @@
 		5AED8DFF1CE7595100F06CC6 /* BSRecommendCategotyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSRecommendCategotyTableViewCell.h; sourceTree = "<group>"; };
 		5AED8E001CE7595100F06CC6 /* BSRecommendCategotyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSRecommendCategotyTableViewCell.m; sourceTree = "<group>"; };
 		5AED8E011CE7595100F06CC6 /* BSRecommendCategotyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BSRecommendCategotyTableViewCell.xib; sourceTree = "<group>"; };
+		5AEFB81B1CF05272000AAA78 /* BSPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSPictureView.h; sourceTree = "<group>"; };
+		5AEFB81C1CF05272000AAA78 /* BSPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSPictureView.m; sourceTree = "<group>"; };
+		5AEFB81E1CF05288000AAA78 /* BSPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BSPictureView.xib; sourceTree = "<group>"; };
+		5AEFB8261CF085BA000AAA78 /* BSProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSProgressView.h; sourceTree = "<group>"; };
+		5AEFB8271CF085BA000AAA78 /* BSProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSProgressView.m; sourceTree = "<group>"; };
 		5AF5BEDD1CEA0C780037589A /* UIImage+BSImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BSImage.h"; sourceTree = "<group>"; };
 		5AF5BEDE1CEA0C780037589A /* UIImage+BSImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BSImage.m"; sourceTree = "<group>"; };
 		5AF5BEE01CEA10810037589A /* BSAutoLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSAutoLoginController.h; sourceTree = "<group>"; };
@@ -303,6 +311,11 @@
 				5AA75A251CED869E00ECCB73 /* BSTopicCell.h */,
 				5AA75A261CED869E00ECCB73 /* BSTopicCell.m */,
 				5AA75A271CED869E00ECCB73 /* BSTopicCell.xib */,
+				5AEFB81B1CF05272000AAA78 /* BSPictureView.h */,
+				5AEFB81C1CF05272000AAA78 /* BSPictureView.m */,
+				5AEFB81E1CF05288000AAA78 /* BSPictureView.xib */,
+				5AEFB8261CF085BA000AAA78 /* BSProgressView.h */,
+				5AEFB8271CF085BA000AAA78 /* BSProgressView.m */,
 			);
 			name = ChildView;
 			sourceTree = "<group>";
@@ -634,6 +647,7 @@
 			files = (
 				5AA75A291CED869E00ECCB73 /* BSTopicCell.xib in Resources */,
 				5AF5BEE41CEA11360037589A /* BSAutoLoginController.xib in Resources */,
+				5AEFB81F1CF05288000AAA78 /* BSPictureView.xib in Resources */,
 				5AAB91211CE9CDF10096945E /* BSTagSettingTableViewCell.xib in Resources */,
 				5AED8DF61CE74B4200F06CC6 /* BSRecommandController.xib in Resources */,
 				5AED8DF11CE7432900F06CC6 /* BSFriendTrendsViewController.xib in Resources */,
@@ -729,6 +743,7 @@
 				5AC419181CE49F4300BC42FA /* BSNewClickViewController.m in Sources */,
 				5AAB91201CE9CDF10096945E /* BSTagSettingTableViewCell.m in Sources */,
 				5AF5BEE71CEA255B0037589A /* BSVerticalButton.m in Sources */,
+				5AEFB8281CF085BA000AAA78 /* BSProgressView.m in Sources */,
 				5AC4190F1CE49EFA00BC42FA /* BSEssenceViewController.m in Sources */,
 				5AF5BEE21CEA10810037589A /* BSAutoLoginController.m in Sources */,
 				5AA75A2F1CEDB7CA00ECCB73 /* NSObject+BSConst.m in Sources */,
@@ -738,6 +753,7 @@
 				5AED8E021CE7595100F06CC6 /* BSRecommendCategotyTableViewCell.m in Sources */,
 				5A25BB541CEAF81D00C217EB /* BSTextField.m in Sources */,
 				5ACAB9031CE8504200695257 /* BSRecommendUserTableViewCell.m in Sources */,
+				5AEFB81D1CF05272000AAA78 /* BSPictureView.m in Sources */,
 				5AC4191B1CE4B0B000BC42FA /* BSTabBar.m in Sources */,
 				5AA75A281CED869E00ECCB73 /* BSTopicCell.m in Sources */,
 				5AF5BEDF1CEA0C780037589A /* UIImage+BSImage.m in Sources */,

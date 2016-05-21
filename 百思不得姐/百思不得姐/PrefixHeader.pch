@@ -15,4 +15,12 @@
 #import "NSObject+BSConst.h"
 #import "NSDate+BSDateExtension.h"
 
+typedef enum {
+    AllType   = 1,
+    VideoType = 41,
+    PicType   = 10,
+    VoiceType = 31,
+    WordType  = 29,
+}BSType;
+
 #endif /* PrefixHeader_pch */

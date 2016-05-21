@@ -131,17 +131,22 @@ static NSString *topicID = @"topic";
     return self.topics.count;
 }
 
-
+/**计算完高度后再来到这个函数**/
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     BSTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:topicID];
     self.tableView.footer.hidden = (self.topics.count == 0);
     BSTopics *topic = self.topics[indexPath.row];
+    //所有cell的设置都在setTopic函数中完成
     cell.topic = topic;
     return cell;
 }
 
+/**先计算cell的高度再来到显示每个cell函数**/
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 200;
+    
+    //取出对应的模型
+    BSTopics *topic = self.topics[indexPath.row];
+    //计算cell高度的过程中计算了图片的frame
+    return topic.cellHeight;
 }
 @end

@@ -10,13 +10,6 @@
 
 @interface BSBaseTableViewController : UITableViewController
 
-typedef enum {
-    AllType   = 1,
-    VideoType = 41,
-    PicType   = 10,
-    VoiceType = 31,
-    WordType  = 29,
-}BSType;
 //这个参数是需要其它控制器传进来的
 @property(nonatomic,assign)BSType type;
 
