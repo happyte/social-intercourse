@@ -7,6 +7,7 @@
 //
 
 #import "BSTabBar.h"
+#import "BSPublishController.h"
 
 @interface BSTabBar()
 
@@ -26,10 +27,17 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
+        [button addTarget:self action:@selector(publishnewVc) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         self.button = button;
     }
     return self;
+}
+
+//显示发布按钮界面
+- (void)publishnewVc {
+    BSPublishController *publishVc = [[BSPublishController alloc]init];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:publishVc animated:NO completion:nil];
 }
 
 - (void)layoutSubviews {

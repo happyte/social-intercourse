@@ -23,4 +23,6 @@ typedef enum {
     WordType  = 29,
 }BSType;
 
+#define BSScreenW [UIApplication sharedApplication].keyWindow.size.width
+#define BSScreenH [UIApplication sharedApplication].keyWindow.size.height
 #endif /* PrefixHeader_pch */

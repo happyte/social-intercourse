@@ -36,6 +36,8 @@
 		5AC4191B1CE4B0B000BC42FA /* BSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC4191A1CE4B0B000BC42FA /* BSTabBar.m */; };
 		5AC4671B1CF13F880077F9CE /* BSShowBigPictureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC467191CF13F880077F9CE /* BSShowBigPictureController.m */; };
 		5AC4671C1CF13F880077F9CE /* BSShowBigPictureController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AC4671A1CF13F880077F9CE /* BSShowBigPictureController.xib */; };
+		5AC467201CF1C1ED0077F9CE /* BSPublishController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC4671E1CF1C1ED0077F9CE /* BSPublishController.m */; };
+		5AC467211CF1C1ED0077F9CE /* BSPublishController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AC4671F1CF1C1ED0077F9CE /* BSPublishController.xib */; };
 		5ACAB8FF1CE84E0500695257 /* BSRecommendUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ACAB8FE1CE84E0500695257 /* BSRecommendUser.m */; };
 		5ACAB9031CE8504200695257 /* BSRecommendUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ACAB9011CE8504200695257 /* BSRecommendUserTableViewCell.m */; };
 		5ACAB9041CE8504200695257 /* BSRecommendUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ACAB9021CE8504200695257 /* BSRecommendUserTableViewCell.xib */; };
@@ -131,6 +133,9 @@
 		5AC467181CF13F880077F9CE /* BSShowBigPictureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSShowBigPictureController.h; sourceTree = "<group>"; };
 		5AC467191CF13F880077F9CE /* BSShowBigPictureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSShowBigPictureController.m; sourceTree = "<group>"; };
 		5AC4671A1CF13F880077F9CE /* BSShowBigPictureController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BSShowBigPictureController.xib; sourceTree = "<group>"; };
+		5AC4671D1CF1C1ED0077F9CE /* BSPublishController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSPublishController.h; sourceTree = "<group>"; };
+		5AC4671E1CF1C1ED0077F9CE /* BSPublishController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSPublishController.m; sourceTree = "<group>"; };
+		5AC4671F1CF1C1ED0077F9CE /* BSPublishController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BSPublishController.xib; sourceTree = "<group>"; };
 		5ACAB8FD1CE84E0500695257 /* BSRecommendUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSRecommendUser.h; sourceTree = "<group>"; };
 		5ACAB8FE1CE84E0500695257 /* BSRecommendUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSRecommendUser.m; sourceTree = "<group>"; };
 		5ACAB9001CE8504200695257 /* BSRecommendUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSRecommendUserTableViewCell.h; sourceTree = "<group>"; };
@@ -521,6 +526,9 @@
 				5AC4190B1CE49E0E00BC42FA /* BSTabBarController.m */,
 				5ACBD1E91CE6E31200B0AF24 /* BSNavigationController.h */,
 				5ACBD1EA1CE6E31200B0AF24 /* BSNavigationController.m */,
+				5AC4671D1CF1C1ED0077F9CE /* BSPublishController.h */,
+				5AC4671E1CF1C1ED0077F9CE /* BSPublishController.m */,
+				5AC4671F1CF1C1ED0077F9CE /* BSPublishController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -657,6 +665,7 @@
 				5AF5BEE41CEA11360037589A /* BSAutoLoginController.xib in Resources */,
 				5AEFB81F1CF05288000AAA78 /* BSPictureView.xib in Resources */,
 				5AAB91211CE9CDF10096945E /* BSTagSettingTableViewCell.xib in Resources */,
+				5AC467211CF1C1ED0077F9CE /* BSPublishController.xib in Resources */,
 				5AED8DF61CE74B4200F06CC6 /* BSRecommandController.xib in Resources */,
 				5AED8DF11CE7432900F06CC6 /* BSFriendTrendsViewController.xib in Resources */,
 				5A25BB501CEADCCB00C217EB /* BSNewFeature.xib in Resources */,
@@ -740,6 +749,7 @@
 				5AC4190C1CE49E0E00BC42FA /* BSTabBarController.m in Sources */,
 				5AED8DF51CE74B4200F06CC6 /* BSRecommandController.m in Sources */,
 				5ACBD1EE1CE6F44100B0AF24 /* UIBarButtonItem+BSBarButtonItem.m in Sources */,
+				5AC467201CF1C1ED0077F9CE /* BSPublishController.m in Sources */,
 				5A25BB4E1CEADCBC00C217EB /* BSNewFeature.m in Sources */,
 				5AC419151CE49F2A00BC42FA /* BSFriendTrendsViewController.m in Sources */,
 				5AAB911B1CE9CAFA0096945E /* BSTagSettingViewController.m in Sources */,
