@@ -142,8 +142,7 @@ static NSString *topicID = @"topic";
 }
 
 /**先计算cell的高度再来到显示每个cell函数**/
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {    
     //取出对应的模型
     BSTopics *topic = self.topics[indexPath.row];
     //计算cell高度的过程中计算了图片的frame

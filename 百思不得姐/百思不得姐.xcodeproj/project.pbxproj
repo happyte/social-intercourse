@@ -34,6 +34,8 @@
 		5AC419151CE49F2A00BC42FA /* BSFriendTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC419141CE49F2A00BC42FA /* BSFriendTrendsViewController.m */; };
 		5AC419181CE49F4300BC42FA /* BSNewClickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC419171CE49F4300BC42FA /* BSNewClickViewController.m */; };
 		5AC4191B1CE4B0B000BC42FA /* BSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC4191A1CE4B0B000BC42FA /* BSTabBar.m */; };
+		5AC4671B1CF13F880077F9CE /* BSShowBigPictureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC467191CF13F880077F9CE /* BSShowBigPictureController.m */; };
+		5AC4671C1CF13F880077F9CE /* BSShowBigPictureController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AC4671A1CF13F880077F9CE /* BSShowBigPictureController.xib */; };
 		5ACAB8FF1CE84E0500695257 /* BSRecommendUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ACAB8FE1CE84E0500695257 /* BSRecommendUser.m */; };
 		5ACAB9031CE8504200695257 /* BSRecommendUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ACAB9011CE8504200695257 /* BSRecommendUserTableViewCell.m */; };
 		5ACAB9041CE8504200695257 /* BSRecommendUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ACAB9021CE8504200695257 /* BSRecommendUserTableViewCell.xib */; };
@@ -126,6 +128,9 @@
 		5AC419171CE49F4300BC42FA /* BSNewClickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSNewClickViewController.m; sourceTree = "<group>"; };
 		5AC419191CE4B0B000BC42FA /* BSTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTabBar.h; sourceTree = "<group>"; };
 		5AC4191A1CE4B0B000BC42FA /* BSTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSTabBar.m; sourceTree = "<group>"; };
+		5AC467181CF13F880077F9CE /* BSShowBigPictureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSShowBigPictureController.h; sourceTree = "<group>"; };
+		5AC467191CF13F880077F9CE /* BSShowBigPictureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSShowBigPictureController.m; sourceTree = "<group>"; };
+		5AC4671A1CF13F880077F9CE /* BSShowBigPictureController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BSShowBigPictureController.xib; sourceTree = "<group>"; };
 		5ACAB8FD1CE84E0500695257 /* BSRecommendUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSRecommendUser.h; sourceTree = "<group>"; };
 		5ACAB8FE1CE84E0500695257 /* BSRecommendUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSRecommendUser.m; sourceTree = "<group>"; };
 		5ACAB9001CE8504200695257 /* BSRecommendUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSRecommendUserTableViewCell.h; sourceTree = "<group>"; };
@@ -525,6 +530,9 @@
 			children = (
 				5A838D661CEEFB42002E1D4E /* BSBaseTableViewController.h */,
 				5A838D671CEEFB42002E1D4E /* BSBaseTableViewController.m */,
+				5AC467181CF13F880077F9CE /* BSShowBigPictureController.h */,
+				5AC467191CF13F880077F9CE /* BSShowBigPictureController.m */,
+				5AC4671A1CF13F880077F9CE /* BSShowBigPictureController.xib */,
 			);
 			name = ChildViewController;
 			sourceTree = "<group>";
@@ -654,6 +662,7 @@
 				5A25BB501CEADCCB00C217EB /* BSNewFeature.xib in Resources */,
 				5ACAB9041CE8504200695257 /* BSRecommendUserTableViewCell.xib in Resources */,
 				5A7BA5531CE469ED004AD4CA /* Assets.xcassets in Resources */,
+				5AC4671C1CF13F880077F9CE /* BSShowBigPictureController.xib in Resources */,
 				5AED8E031CE7595100F06CC6 /* BSRecommendCategotyTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -752,6 +761,7 @@
 				5AC419121CE49F0F00BC42FA /* BSMeViewController.m in Sources */,
 				5AED8E021CE7595100F06CC6 /* BSRecommendCategotyTableViewCell.m in Sources */,
 				5A25BB541CEAF81D00C217EB /* BSTextField.m in Sources */,
+				5AC4671B1CF13F880077F9CE /* BSShowBigPictureController.m in Sources */,
 				5ACAB9031CE8504200695257 /* BSRecommendUserTableViewCell.m in Sources */,
 				5AEFB81D1CF05272000AAA78 /* BSPictureView.m in Sources */,
 				5AC4191B1CE4B0B000BC42FA /* BSTabBar.m in Sources */,

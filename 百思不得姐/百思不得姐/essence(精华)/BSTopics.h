@@ -46,5 +46,7 @@
 @property(nonatomic,assign)CGRect pictureFrame;
 //是否为大图，超出范围需要点击按钮显示的
 @property(nonatomic,assign,getter=isbigImage)BOOL bigImage;
+//存储下载进度
+@property(nonatomic,assign)CGFloat progress;
 
 @end

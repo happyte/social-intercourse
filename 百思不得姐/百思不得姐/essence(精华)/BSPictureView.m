@@ -11,6 +11,7 @@
 #import "BSTopics.h"
 #import "BSProgressView.h"
 #import <DALabeledCircularProgressView.h>
+#import "BSShowBigPictureController.h"
 
 @interface BSPictureView()
 
@@ -18,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *seebigBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *gifImageView;
 @property (weak, nonatomic) IBOutlet BSProgressView *progressView;
-
+@property(nonatomic,assign)CGFloat progress;
 @end
 
 @implementation BSPictureView
@@ -30,7 +31,12 @@
 }
 
 - (void)showBigPicture:(UITapGestureRecognizer *)tap {
-    NSLog(@"-------------");
+    //进入大图显示大图界面,控制器init方法会自动去加载xib
+    BSShowBigPictureController *bigVc = [[BSShowBigPictureController alloc]init];
+    //传递模型
+    bigVc.topic = self.topic;
+    //modal跳转到bigVc,在uiview中只能拿到根控制器去跳转
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:bigVc animated:YES completion:nil];
 }
 
 + (instancetype)pictureView {
@@ -40,11 +46,15 @@
 
 - (void)setTopic:(BSTopics *)topic {
     _topic = topic;
+    [self.progressView setProgress:topic.progress animated:NO];
     [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         CGFloat progress = receivedSize*1.0/expectedSize;
-        [self.progressView setProgress:progress animated:NO];
+        //存储进度，防止cell循环利用带来的显示问题
+        topic.progress = progress;
+        [self.progressView setProgress:topic.progress animated:NO];
+        self.progressView.hidden = NO;
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        
+        self.progressView.hidden = YES;
     }];
     //是大图显示放大按钮
     self.seebigBtn.hidden = (topic.isbigImage? NO:YES);
