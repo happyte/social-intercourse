@@ -36,6 +36,7 @@
     self.navigationItem.titleView = MainVc;
     //设置导航条左部
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:[UIImage imageNamed:@"MainTagSubIcon"] WithHighlighted:[UIImage imageNamed:@"MainTagSubIconClick"] WithController:self WithTarget:@selector(tagClick)];
+
 }
 
 //初始化顶部标签栏
@@ -88,6 +89,7 @@
  *初始化子控制器
  */
 - (void)setUpAllChildControllers {
+
     BSBaseTableViewController *allVc = [[BSBaseTableViewController alloc]init];
     allVc.type = AllType;
     [self addChildViewController:allVc];

@@ -12,6 +12,5 @@
 @interface BSTopicCell : UITableViewCell
 
 @property(nonatomic,strong)BSTopics *topic;
-
-
++ (instancetype)cell;
 @end

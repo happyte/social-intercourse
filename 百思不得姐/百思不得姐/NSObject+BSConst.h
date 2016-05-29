@@ -25,3 +25,9 @@ UIKIT_EXTERN CGFloat const pictureViewWidth;
 UIKIT_EXTERN CGFloat const pictureViewMaxHeight;
 /***精华-cell－图片超出最大高度就使用这个高度**/
 UIKIT_EXTERN CGFloat const pictureViewBreakHeight;
+/***精华-cell－最热评论高度**/
+UIKIT_EXTERN CGFloat const commentViewTitle;
+/***用户女性**/
+UIKIT_EXTERN NSString  *female;
+/***用户男性**/
+UIKIT_EXTERN NSString  *male;

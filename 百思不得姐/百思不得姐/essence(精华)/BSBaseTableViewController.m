@@ -14,6 +14,9 @@
 #import <UIImageView+WebCache.h>
 #import "BSTopics.h"
 #import "BSTopicCell.h"
+#import "BSComment.h"
+#import "BSUser.h"
+#import "BSCommentController.h"
 
 @interface BSBaseTableViewController ()
 
@@ -62,7 +65,6 @@ static NSString *topicID = @"topic";
 
 //加载新用户
 - (void)loadNewUsers {
-    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
@@ -126,7 +128,6 @@ static NSString *topicID = @"topic";
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.topics.count;
 }
@@ -145,7 +146,17 @@ static NSString *topicID = @"topic";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {    
     //取出对应的模型
     BSTopics *topic = self.topics[indexPath.row];
-    //计算cell高度的过程中计算了图片的frame
+    //模型的数据已知，就在模型中计算,计算cell高度的过程中计算了图片的frame
     return topic.cellHeight;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+   //点击cell跳转到评论界面，如果有照片点击了照片的话，是跳转到显示照片
+    BSCommentController *commentVc = [[BSCommentController alloc]init];
+    //取出对应的模型
+    BSTopics *topic = self.topics[indexPath.row];
+    //传递模型
+    commentVc.topic = topic;
+    [self.navigationController pushViewController:commentVc animated:YES];
 }
 @end

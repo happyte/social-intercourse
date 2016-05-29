@@ -39,11 +39,28 @@
 @property(nonatomic,assign)CGFloat width;
 //控制器的类型
 @property(nonatomic,assign)BSType type;
+//voice播放时间
+@property(nonatomic,assign)NSInteger voicetime;
+//播放次数
+@property(nonatomic,assign)NSInteger playcount;
+//video播放时间
+@property(nonatomic,assign)NSInteger videotime;
+//最热评论top_cmt数组
+@property(nonatomic,strong)NSArray *top_cmt;
+//id
+@property(nonatomic,strong)NSString *ID;
+
+
+
 
 //自定义属性
 @property(nonatomic,assign)CGFloat cellHeight;
 //pictureview的frame
 @property(nonatomic,assign)CGRect pictureFrame;
+//voiceview的frame
+@property(nonatomic,assign)CGRect voiceFrame;
+//videoview的frame
+@property(nonatomic,assign)CGRect videoFrame;
 //是否为大图，超出范围需要点击按钮显示的
 @property(nonatomic,assign,getter=isbigImage)BOOL bigImage;
 //存储下载进度

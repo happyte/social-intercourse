@@ -17,3 +17,6 @@ CGFloat const cellMargin = 10;
 CGFloat const pictureViewWidth = 335;
 CGFloat const pictureViewMaxHeight = 1000;
 CGFloat const pictureViewBreakHeight = 300;
+CGFloat const commentViewTitle = 20;
+NSString  *female = @"f";
+NSString  *male = @"m";
