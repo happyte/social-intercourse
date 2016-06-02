@@ -116,6 +116,10 @@
     [[AFHTTPSessionManager manager]GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
+         //新帖加载的过程中可能responseObject是NSArray类型的，不是字典，是服务器返回的问题,好像是评论小于10条会返回数组
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            return ;
+        }
         //重新恢复下拉
         [self.tableView.footer beginRefreshing];
         NSInteger total = [responseObject[@"total"] integerValue];
@@ -149,7 +153,9 @@
     [[AFHTTPSessionManager manager]GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
-
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            return ;
+        }
         NSArray *array = [BSComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         //添加新数据
         [self.latestComments addObjectsFromArray:array];
@@ -172,6 +178,9 @@
 #pragma mark - <UIScrollViewDelegate>
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [self.view endEditing:YES];
+    //UIMenuController消失
+    [[UIMenuController sharedMenuController]setMenuVisible:NO animated:YES];
+    
 }
 
 #pragma mark - <UITableViewDataSource>
@@ -227,5 +236,43 @@
         label.text = @"最新评论";
     }
     return header;
+}
+
+//选中评论cell，弹出uimenuitem
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    if (menu.isMenuVisible) {
+        [menu setMenuVisible:NO animated:YES];
+    }
+    else {
+        //选出被选中的cell
+        BSCommentViewCell *cell = (BSCommentViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+        [cell becomeFirstResponder];
+        //选出被选中行的cell
+        UIMenuItem *ding = [[UIMenuItem alloc]initWithTitle:@"顶" action:@selector(ding:)];
+        UIMenuItem *replay = [[UIMenuItem alloc]initWithTitle:@"回复" action:@selector(replay:)];
+        UIMenuItem *repost = [[UIMenuItem alloc]initWithTitle:@"举报" action:@selector(repost:)];
+        menu.menuItems = @[ding,replay,repost];
+        CGRect rect = CGRectMake(0, cell.height*0.5, cell.width, cell.height*0.5);
+        [menu setTargetRect:rect inView:cell];
+        [menu setMenuVisible:YES animated:YES];
+    }
+}
+
+- (void)ding:(UIMenuController *)menu {
+    // 选出tableview哪一行被选中
+    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+    NSLog(@"%@",[self commentIndexPath:path].content);
+}
+
+- (void)replay:(UIMenuController *)menu {
+    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+    NSLog(@"%@",[self commentIndexPath:path].content);
+
+}
+
+- (void)repost:(UIMenuController *)menu {
+    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+    NSLog(@"%@",[self commentIndexPath:path].content);
 }
 @end

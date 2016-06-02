@@ -74,7 +74,7 @@
 - (void)setTopic:(BSTopics *)topic {
    
    _topic = topic;
-   [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    [self.profileImageView setHeaderView:topic.profile_image];
     self.nameLabel.text = topic.name;
     self.createLabel.text = topic.created_at;
     self.content_text.text = topic.text;

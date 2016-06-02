@@ -31,3 +31,6 @@ UIKIT_EXTERN CGFloat const commentViewTitle;
 UIKIT_EXTERN NSString  *female;
 /***用户男性**/
 UIKIT_EXTERN NSString  *male;
+
+/***tabBar通知名字**/
+UIKIT_EXTERN NSString  *BSTabBarDidSelectedNotification;

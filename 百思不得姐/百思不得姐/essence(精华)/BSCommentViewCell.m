@@ -28,10 +28,19 @@
     [super awakeFromNib];
 }
 
+//二者缺一不可，第一个成为第一响应者，第二个去掉所有默认的选项
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+    return NO;
+}
+
 - (void)setComment:(BSComment *)comment {
     _comment = comment;
     //头像
-    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:comment.user.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    [self.profileImageView setHeaderView:comment.user.profile_image];
     //性别头像
     if ([comment.user.sex isEqualToString:female]) {
         self.sexImageView.image = [UIImage imageNamed:@"Profile_womanIcon"];

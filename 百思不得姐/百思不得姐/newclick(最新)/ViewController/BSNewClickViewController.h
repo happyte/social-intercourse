@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BSEssenceViewController.h"
 
-@interface BSNewClickViewController : UIViewController
+@interface BSNewClickViewController : BSEssenceViewController
 
 @end

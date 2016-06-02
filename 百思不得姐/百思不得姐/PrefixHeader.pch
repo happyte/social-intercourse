@@ -14,6 +14,8 @@
 #import "UIImage+BSImage.h"
 #import "NSObject+BSConst.h"
 #import "NSDate+BSDateExtension.h"
+#import "UIImageView+BSHeaderView.h"
+
 
 typedef enum {
     AllType   = 1,

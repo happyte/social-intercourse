@@ -20,3 +20,4 @@ CGFloat const pictureViewBreakHeight = 300;
 CGFloat const commentViewTitle = 20;
 NSString  *female = @"f";
 NSString  *male = @"m";
+NSString  *BSTabBarDidSelectedNotification = @"BSTabBarDidSelectedNotification";

@@ -62,7 +62,7 @@
     [self setUpTabBarItem:friendTrendsVc title:@"关注" Image:@"tabBar_friendTrends_icon" SelectedImage:@"tabBar_friendTrends_click_icon"];
     
     
-    BSMeViewController *meVc = [[BSMeViewController alloc]init];
+    BSMeViewController *meVc = [[BSMeViewController alloc]initWithStyle:UITableViewStyleGrouped];
     [self setUpTabBarItem:meVc title:@"我" Image:@"tabBar_me_icon" SelectedImage:@"tabBar_me_click_icon"];
     
 }

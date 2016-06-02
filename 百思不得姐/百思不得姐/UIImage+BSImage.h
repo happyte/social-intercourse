@@ -11,5 +11,5 @@
 @interface UIImage (BSImage)
 
 + (UIImage *)imageWithClipImage:(UIImage *)image borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)color;
-
+- (UIImage *)circleImage;
 @end

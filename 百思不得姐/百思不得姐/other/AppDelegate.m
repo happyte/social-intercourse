@@ -9,8 +9,9 @@
 #import "AppDelegate.h"
 #import "BSTabBarController.h"
 #import "BSNewFeature.h"
+#import "BSTopWindow.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<UITabBarControllerDelegate>
 
 @end
 
@@ -21,7 +22,10 @@
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds;
     //设置根控制器
-    self.window.rootViewController = [[BSTabBarController alloc]init];
+    BSTabBarController *tabBarVc = [[BSTabBarController alloc]init];
+    //设置代理，监听tabbar的点击
+    tabBarVc.delegate = self;
+    self.window.rootViewController = tabBarVc;
     //显示窗口
     [self.window makeKeyAndVisible];
     //取出当前版本号
@@ -37,6 +41,12 @@
         [[NSUserDefaults standardUserDefaults]setObject:currentVersion forKey:key];
     }
     return YES;
+}
+
+#pragma mark - <UITabBarControllerDelegate>
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    //发出通知,让控制器去接收通知
+    [[NSNotificationCenter defaultCenter]postNotificationName:BSTabBarDidSelectedNotification object:nil userInfo:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -55,6 +65,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

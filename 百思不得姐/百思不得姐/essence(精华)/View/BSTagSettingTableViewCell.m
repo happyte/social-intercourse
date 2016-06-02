@@ -33,7 +33,7 @@
 
 - (void)setRecommendTag:(BSTag *)recommendTag {
     _recommendTag = recommendTag;
-    [self.list_name sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    [self.list_name setHeaderView:recommendTag.image_list];
     //裁减图片不成功
     self.theme_name.text = recommendTag.theme_name;
     if (recommendTag.sub_number > 10000) {

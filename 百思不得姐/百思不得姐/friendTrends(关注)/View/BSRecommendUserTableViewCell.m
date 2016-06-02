@@ -33,7 +33,7 @@
 
 - (void)setModel:(BSRecommendUser *)model {
     _model = model;
-    [self.headerImage sd_setImageWithURL:[NSURL URLWithString:model.header] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    [self.headerImage setHeaderView:model.header];
     self.screenName.text = model.screen_name;
     self.fansCount.text = [NSString stringWithFormat:@"%zd人关注",model.fans_count];
 

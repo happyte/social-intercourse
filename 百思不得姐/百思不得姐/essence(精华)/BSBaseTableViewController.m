@@ -17,6 +17,7 @@
 #import "BSComment.h"
 #import "BSUser.h"
 #import "BSCommentController.h"
+#import "BSNewClickViewController.h"
 
 @interface BSBaseTableViewController ()
 
@@ -25,6 +26,8 @@
 @property(nonatomic,assign)NSInteger page;
 /** 最新的请求参数 */
 @property (nonatomic, strong) NSDictionary *params;
+//选中的tabBarController的index
+@property(nonatomic,assign)NSUInteger selectedIndex;
 @end
 
 @implementation BSBaseTableViewController
@@ -52,6 +55,16 @@ static NSString *topicID = @"topic";
     //tableview占据的frame是整个屏幕，但是能显示的是下面一句话设置的
     self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    //接收tabbar发出的通知
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(tabBarClick) name:BSTabBarDidSelectedNotification object:nil];
+}
+
+- (void)tabBarClick {
+    // 连续点击两次而且是屏幕上当前显示的控制器
+    if (self.selectedIndex == self.tabBarController.selectedIndex && self.tabBarController.selectedViewController == self.navigationController && [self.view isShowingOnWindow]) {
+        [self.tableView.header beginRefreshing];
+    }
+    self.selectedIndex = self.tabBarController.selectedIndex;
 }
 //设置刷新控件
 - (void)setUpRefresh {
@@ -63,16 +76,24 @@ static NSString *topicID = @"topic";
     self.tableView.footer.hidden = YES;
 }
 
+- (NSString *)a {
+    return ([self.parentViewController isKindOfClass:[BSNewClickViewController class]])? @"newlist":@"list";
+}
+
 //加载新用户
 - (void)loadNewUsers {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
+    params[@"a"] = self.a;
     params[@"c"] = @"data";
     params[@"type"] =  @(self.type);
     self.params = params;
     [[AFHTTPSessionManager manager]GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
         [SVProgressHUD show];
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
+
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            return ;
+        }
         //如果请求成功的参数不等于最新的参数，return
         if (self.params != params) {
             return ;
@@ -97,7 +118,7 @@ static NSString *topicID = @"topic";
 - (void)loadMoreUsers {
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
+    params[@"a"] = self.a;;
     params[@"c"] = @"data";
     params[@"type"] = @(self.type);
     params[@"maxtime"] = self.maxtime;
@@ -105,6 +126,10 @@ static NSString *topicID = @"topic";
     [[AFHTTPSessionManager manager]GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
         [SVProgressHUD show];
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
+
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            return ;
+        }
         if (self.params != params) {
             return ;
         }
